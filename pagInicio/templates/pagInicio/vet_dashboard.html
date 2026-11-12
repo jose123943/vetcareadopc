@@ -1,5 +1,5 @@
 {% load static %}
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VetCare · Gestión veterinaria</title><link rel="stylesheet" href="{% static 'pagInicio/css/styles.css' %}"><script src="{% static 'pagInicio/js/scripts.js' %}" defer></script></head>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VetCare · Gestión veterinaria</title><link rel="stylesheet" href="{% static 'pagInicio/css/styles.css' %}?v=2"><script src="{% static 'pagInicio/js/scripts.js' %}?v=2" defer></script></head>
 <body><a class="skip-link" href="#contenido-dinamico">Ir al contenido</a>
 <header class="header"><a class="brand" href="{% url 'homeini' %}"><span class="brand-mark" aria-hidden="true">V</span><span><strong>VetCare</strong><small>Gestión veterinaria</small></span></a>
 <div class="user-section"><span class="user-name">{% firstof request.user.get_full_name request.user.username %}</span><form class="logout-form" method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="logout-button" type="submit">Cerrar sesión</button></form><button id="nav-toggle" class="nav-toggle" type="button" aria-controls="app-navigation" aria-expanded="false">Menú</button></div></header>
