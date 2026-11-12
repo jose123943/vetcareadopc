@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VetCare · Gestión veterinaria</title><link rel="stylesheet" href="{% static 'pagInicio/css/styles.css' %}"><script src="{% static 'pagInicio/js/scripts.js' %}" defer></script></head>
+<body><a class="skip-link" href="#contenido-dinamico">Ir al contenido</a>
+<header class="header"><a class="brand" href="{% url 'homeini' %}"><span class="brand-mark" aria-hidden="true">V</span><span><strong>VetCare</strong><small>Gestión veterinaria</small></span></a>
+<div class="user-section"><span class="user-name">{% firstof request.user.get_full_name request.user.username %}</span><form class="logout-form" method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="logout-button" type="submit">Cerrar sesión</button></form><button id="nav-toggle" class="nav-toggle" type="button" aria-controls="app-navigation" aria-expanded="false">Menú</button></div></header>
+<div class="app-shell"><aside class="sidebar"><nav id="app-navigation" aria-label="Navegación principal"><p class="nav-label">Tu clínica</p>
+<button class="menu-item active" type="button" data-page="dashboard" data-section="dashboard" aria-current="page">Resumen</button>
+<button class="menu-item" type="button" data-page="clientes" data-section="consultar">Clientes y mascotas</button>
+<button class="menu-item" type="button" data-page="citas" data-section="agendar">Citas</button>
+<button class="menu-item" type="button" data-page="salud" data-section="vacunacion">Vacunas y tratamientos</button>
+<button class="menu-item" type="button" data-page="adopciones" data-section="adopciones">Adopciones</button>
+<button class="menu-item" type="button" data-page="facturas" data-section="reportes">Facturación</button>
+{% if request.user.is_staff %}<div class="nav-footer"><a href="/admin/">Administrar personal y registros ↗</a></div>{% endif %}
+</nav></aside><div class="workspace"><div id="app-notice" class="notice" role="status" aria-live="polite" hidden></div>
+<main id="contenido-dinamico" tabindex="-1" data-can-bill="{{ request.user.is_staff|yesno:'true,false' }}" aria-busy="true"><p class="loading" role="status">Cargando VetCare…</p></main><noscript><p class="notice error">Activa JavaScript para gestionar los registros.</p></noscript></div></div>
+<dialog id="app-dialog" aria-labelledby="dialog-title"></dialog></body></html>
