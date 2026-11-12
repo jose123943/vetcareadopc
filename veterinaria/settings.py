@@ -187,7 +187,7 @@ USE_TZ = True
 # 9. ARCHIVOS ESTÁTICOS
 # ==========================================
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 
 # ==========================================
